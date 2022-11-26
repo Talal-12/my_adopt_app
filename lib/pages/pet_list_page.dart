@@ -31,16 +31,31 @@ class PetListPage extends StatelessWidget {
               onRefresh: () async {
                 await context.read<PetProvider>().loadPets;
               },
-              child: GridView.builder(
-                  shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: MediaQuery.of(context).size.width /
-                        (MediaQuery.of(context).size.height),
+              child: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Padding(
+                        padding: EdgeInsets.all(12.0),
+                        child: Text("Add a new Pet"),
+                      ),
+                    ),
                   ),
-                  physics: const BouncingScrollPhysics(), // <- Here
-                  itemCount: context.watch<PetProvider>().pets.length,
-                  itemBuilder: (context, index) => PetCard(pet: pets[index])),
+                  GridView.builder(
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: MediaQuery.of(context).size.width /
+                            (MediaQuery.of(context).size.height),
+                      ),
+                      physics: const BouncingScrollPhysics(), // <- Here
+                      itemCount: context.watch<PetProvider>().pets.length,
+                      itemBuilder: (context, index) =>
+                          PetCard(pet: pets[index])),
+                ],
+              ),
               // ListView.builder(
               //     itemCount: context.watch<PetProvider>().pets.length,
               //     itemBuilder: (context, index) {

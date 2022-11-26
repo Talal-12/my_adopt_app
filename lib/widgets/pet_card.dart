@@ -26,7 +26,10 @@ class PetCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(pet.name),
+                  Text(
+                    pet.name,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  ),
                   Text("Age: ${pet.age}"),
                   Text("Gender: ${pet.gender}"),
                   ElevatedButton(
