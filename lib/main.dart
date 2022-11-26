@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => PetProvider()),
       ],
       child: MaterialApp.router(
-        title: 'Flutter Demo',
+        title: 'Pet Adoption App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
