@@ -34,7 +34,8 @@ class PetListPage extends StatelessWidget {
               child: ListView(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(
+                        top: 7, left: 8, right: 8, bottom: 3),
                     child: ElevatedButton(
                       onPressed: () {},
                       child: const Padding(
@@ -51,7 +52,7 @@ class PetListPage extends StatelessWidget {
                         childAspectRatio: MediaQuery.of(context).size.width /
                             (MediaQuery.of(context).size.height),
                       ),
-                      physics: const BouncingScrollPhysics(), // <- Here
+                      physics: const RangeMaintainingScrollPhysics(), // <- Here
                       itemCount: context.watch<PetProvider>().pets.length,
                       itemBuilder: (context, index) =>
                           PetCard(pet: pets[index])),

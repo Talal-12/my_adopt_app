@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'Pet Adoption App',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.blueGrey,
         ),
         routerConfig: router,
       ),
