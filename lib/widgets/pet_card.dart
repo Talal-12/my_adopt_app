@@ -16,32 +16,54 @@ class PetCard extends StatelessWidget {
           Expanded(
             child: Image.network(
               pet.image,
-              fit: BoxFit.cover,
+              fit: BoxFit.fitHeight,
               width: double.infinity,
             ),
           ),
-          Expanded(
+          Container(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    pet.name,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 2),
+                    child: Text(
+                      pet.name,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
                   ),
-                  Text("Age: ${pet.age}"),
-                  Text("Gender: ${pet.gender}"),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 2, bottom: 2),
+                    child: Text(
+                      "Age: ${pet.age}",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 6),
+                    child: Text(
+                      "Gender: ${pet.gender}",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
                   ElevatedButton(
                     onPressed: () {},
-                    child: const Text("Adopt"),
+                    child: const Text(
+                      "Adopt",
+                      style: TextStyle(fontSize: 17),
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.edit)),
+                          iconSize: 30,
+                          onPressed: () {},
+                          icon: const Icon(Icons.edit)),
                       IconButton(
+                          iconSize: 28,
                           onPressed: () {},
                           icon: const Icon(
                             Icons.delete,

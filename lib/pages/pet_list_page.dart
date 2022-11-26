@@ -39,7 +39,8 @@ class PetListPage extends StatelessWidget {
                       onPressed: () {},
                       child: const Padding(
                         padding: EdgeInsets.all(12.0),
-                        child: Text("Add a new Pet"),
+                        child: Text("Add a new Pet",
+                            style: TextStyle(fontSize: 18)),
                       ),
                     ),
                   ),
