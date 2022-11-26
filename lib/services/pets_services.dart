@@ -2,15 +2,15 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:my_adopt_app/models/pet_model.dart';
 
-class PetProvider extends ChangeNotifier {
+class PetsProvider extends ChangeNotifier {
   List<PetModel> pets = [];
   bool isLoading = true;
 
-  PetProvider() {
-    loadPets();
+  PetsProvider() {
+    getPets();
   }
 
-  void loadPets() async {
+  void getPets() async {
     isLoading = true;
     notifyListeners();
 

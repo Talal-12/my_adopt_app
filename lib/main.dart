@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_adopt_app/providers/pet_provider.dart';
+import 'package:my_adopt_app/services/pets_services.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/pet_list_page.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => PetProvider()),
+        ChangeNotifierProvider(create: (context) => PetsProvider()),
       ],
       child: MaterialApp.router(
         title: 'Pet Adoption App',

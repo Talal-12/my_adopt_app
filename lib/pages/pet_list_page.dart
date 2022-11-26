@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:my_adopt_app/models/pet_model.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/pet_provider.dart';
+import '../services/pets_services.dart';
 import '../widgets/pet_card.dart';
 
 class PetListPage extends StatelessWidget {
@@ -12,7 +12,8 @@ class PetListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<PetModel> pets = Provider.of<PetProvider>(context, listen: false).pets;
+    List<PetModel> pets =
+        Provider.of<PetsProvider>(context, listen: false).pets;
     return Scaffold(
       appBar: AppBar(
         title: Text("Pet Adoption"),
@@ -20,16 +21,16 @@ class PetListPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.refresh),
         onPressed: () {
-          context.read<PetProvider>().loadPets();
+          context.read<PetsProvider>().getPets();
         },
       ),
-      body: context.watch<PetProvider>().isLoading
+      body: context.watch<PetsProvider>().isLoading
           ? Center(
               child: CircularProgressIndicator(),
             )
           : RefreshIndicator(
               onRefresh: () async {
-                await context.read<PetProvider>().loadPets;
+                await context.read<PetsProvider>().getPets;
               },
               child: ListView(
                 children: [
@@ -53,7 +54,7 @@ class PetListPage extends StatelessWidget {
                             (MediaQuery.of(context).size.height),
                       ),
                       physics: const RangeMaintainingScrollPhysics(), // <- Here
-                      itemCount: context.watch<PetProvider>().pets.length,
+                      itemCount: context.watch<PetsProvider>().pets.length,
                       itemBuilder: (context, index) =>
                           PetCard(pet: pets[index])),
                 ],
