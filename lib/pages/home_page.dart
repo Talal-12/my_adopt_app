@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:my_adopt_app/models/pet_model.dart';
+import 'package:my_adopt_app/models/pet.dart';
 import 'package:provider/provider.dart';
 
-import '../services/pets_services.dart';
+import '../providers/pets_provider.dart';
 import '../widgets/pet_card.dart';
 
 class PetListPage extends StatelessWidget {

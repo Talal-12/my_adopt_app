@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../models/pet_model.dart';
+import '../models/pet.dart';
 
 class PetCard extends StatelessWidget {
   final PetModel pet;

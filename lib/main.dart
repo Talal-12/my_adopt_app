@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_adopt_app/services/pets_services.dart';
+import 'package:my_adopt_app/providers/pets_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/pet_list_page.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());

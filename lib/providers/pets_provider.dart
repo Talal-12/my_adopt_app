@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:my_adopt_app/models/pet_model.dart';
+import 'package:my_adopt_app/models/pet.dart';
 
 class PetsProvider extends ChangeNotifier {
   List<PetModel> pets = [];
