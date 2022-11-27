@@ -3,7 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:my_adopt_app/providers/pets_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/home_page.dart';
+import 'pages/add_pet_page.dart';
+import 'pages/pets_list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,11 @@ void main() {
 final router = GoRouter(routes: [
   GoRoute(
     path: '/',
-    builder: (context, state) => PetListPage(),
+    builder: (context, state) => PetsListPage(),
+  ),
+  GoRoute(
+    path: '/add',
+    builder: (context, state) => AddPetPage(),
   ),
 ]);
 

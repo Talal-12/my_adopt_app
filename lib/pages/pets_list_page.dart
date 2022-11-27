@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:my_adopt_app/models/pet.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_adopt_app/models/pet_model.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/pets_provider.dart';
 import '../widgets/pet_card.dart';
 
-class PetListPage extends StatelessWidget {
-  PetListPage();
+class PetsListPage extends StatelessWidget {
+  PetsListPage();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,9 @@ class PetListPage extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         top: 7, left: 8, right: 8, bottom: 3),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.push("/add");
+                      },
                       child: const Padding(
                         padding: EdgeInsets.all(12.0),
                         child: Text("Add a new Pet",
