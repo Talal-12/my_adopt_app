@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_adopt_app/models/pet_model.dart';
 import 'package:my_adopt_app/pages/edit_pet_page.dart';
+import 'package:my_adopt_app/pages/signup_page.dart';
+import 'package:my_adopt_app/providers/auth_provider.dart';
 import 'package:my_adopt_app/providers/pets_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +17,10 @@ void main() {
 final router = GoRouter(routes: [
   GoRoute(
     path: '/',
+    builder: (context, state) => SignupPage(),
+  ),
+  GoRoute(
+    path: '/list',
     builder: (context, state) => PetsListPage(),
   ),
   GoRoute(
@@ -38,6 +44,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => PetsProvider()),
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
       ],
       child: MaterialApp.router(
         title: 'Pet Adoption App',
