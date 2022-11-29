@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_adopt_app/models/pet_model.dart';
+import 'package:my_adopt_app/pages/edit_pet_page.dart';
 import 'package:my_adopt_app/providers/pets_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +20,12 @@ final router = GoRouter(routes: [
   GoRoute(
     path: '/add',
     builder: (context, state) => AddPetPage(),
+  ),
+  GoRoute(
+    path: '/edit',
+    builder: (context, state) => EditPetPage(
+      pet: state.extra as PetModel,
+    ),
   ),
 ]);
 

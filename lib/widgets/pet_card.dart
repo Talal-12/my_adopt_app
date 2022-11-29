@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_adopt_app/providers/pets_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../models/pet_model.dart';
@@ -60,11 +61,13 @@ class PetCard extends StatelessWidget {
                     children: [
                       IconButton(
                           iconSize: 30,
-                          onPressed: () {},
+                          onPressed: () => context.push("/edit", extra: pet),
                           icon: const Icon(Icons.edit)),
                       IconButton(
                           iconSize: 28,
-                          onPressed: () {},
+                          onPressed: () => context
+                              .read<PetsProvider>()
+                              .deletePet(pet.id as int),
                           icon: const Icon(
                             Icons.delete,
                             color: Colors.red,
