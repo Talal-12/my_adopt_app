@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:my_adopt_app/models/pet_model.dart';
@@ -10,9 +12,11 @@ class PetsProvider extends ChangeNotifier {
     getPets();
   }
 
-  void getPets() async {
+  Future<void> getPets() async {
     isLoading = true;
     notifyListeners();
+
+    pets.clear();
 
     // await a future (delay: 1 second)
     // await Future.delayed(Duration(seconds: 1));
@@ -40,5 +44,24 @@ class PetsProvider extends ChangeNotifier {
 
     isLoading = false;
     notifyListeners();
+  }
+
+  Future<void> addPets({
+    required String name,
+    required String age,
+    required String gender,
+    required File image,
+  }) async {
+    var client = Dio();
+
+    await client.post("https://coded-pets-api-crud.herokuapp.com/pets/",
+        data: FormData.fromMap({
+          "name": name,
+          "age": age,
+          "gender": gender,
+          "image": await MultipartFile.fromFile(image.path),
+        }));
+
+    getPets();
   }
 }
