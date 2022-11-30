@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_adopt_app/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
@@ -84,8 +82,9 @@ class SignupPage extends StatelessWidget {
                               textAlign: TextAlign.center,
                             )));
                       }
+                    } else {
+                      print("form not valid");
                     }
-                    ;
                   },
                   child: Text("Sign Up"),
                 ),
